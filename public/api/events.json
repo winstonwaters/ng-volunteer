@@ -1,0 +1,15 @@
+[{
+	"name": "Yard Sale-a-palooza",
+	"date": "December 24, 2016",
+	"host": {
+		"name": "Salvation Army",
+		"num_events": 6
+	}
+}, {
+	"name": "Phone call-a-thon",
+	"date": "October 11, 2016",
+	"host": {
+		"name": "Phone Savers",
+		"num_events": 16
+	}
+}]
