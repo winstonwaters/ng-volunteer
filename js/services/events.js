@@ -1,7 +1,12 @@
 module.exports = function(app) {
   app.factory('EventService', ['$http', function($http){
     return {
-      addEvent: function
+      getEvent: function(eventId){
+        $http({
+          method: 'GET',
+          url: '/api/event',
+        })
+      }
     }
   }])
 }
