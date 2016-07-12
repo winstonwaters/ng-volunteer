@@ -1,15 +1,26 @@
 [{
-	"name": "Yard Sale-a-palooza",
-	"date": "December 24, 2016",
-	"host": {
-		"name": "Salvation Army",
-		"num_events": 6
-	}
+	"name": "Bama vs USC",
+	"date": "Saturday September 3, 2016",
+	"location": "AT&T Stadium, Arlington, TX",
+	"time": "7:00pm CT"
 }, {
-	"name": "Phone call-a-thon",
-	"date": "October 11, 2016",
-	"host": {
-		"name": "Phone Savers",
-		"num_events": 16
-	}
+	"name": "Bama vs Ole Miss",
+	"date": "Saturday September 17, 2016",
+	"location": "Vaught-Hemingway Stadium, Oxford, MS",
+	"time": "2:30pm CT"
+}, {
+	"name": "Bama vs Tennessee",
+	"date": "Saturday October 15, 2016",
+	"location": "Neyland Stadium, Knoxville, TN",
+	"time": "TBA"
+}, {
+	"name": "Bama vs LSU",
+	"date": "Saturday November 5, 2016",
+	"location": "Tiger Stadium, Baton Rouge, LA",
+	"time": "TBA"
+}, {
+	"name": "Bama vs Auburn",
+	"date": "Saturday November 26, 2016",
+	"location": "Bryant-Denny Stadium, Tuscaloosa, AL",
+	"time": "TBA"
 }]

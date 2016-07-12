@@ -1,0 +1,40 @@
+*{
+  font-family: helvetica;
+}
+#nav {
+  text-decoration: none;
+  background-color: rgb(145, 32, 32);
+  width: 99%;
+  padding: 10px;
+  margin-bottom: 3px;
+  color: white;
+  text-decoration: none;
+}
+
+#nav h1{
+  display: inline-block;
+}
+
+
+#nav ul {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  text-decoration: none;
+  li{
+    color: inherit;
+    display: inline-block;
+    padding-right: 1em;
+    text-decoration: none;
+
+  }
+  li:hover {
+    text-decoration: none;
+    font-weight: lighter;
+  }
+}
+
+#list a{
+  color: white;
+  text-decoration: none;
+}

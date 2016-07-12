@@ -1,0 +1,27 @@
+.main-content{
+  width: 100%;
+  display: inline-block;
+  color: white;
+}
+
+#eventlist{
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  background-color: gray;
+  h1 {
+    text-align: center;
+  }
+  ul {
+    text-align: center;
+    list-style: none;
+    line-height: 20px;
+    li {padding-bottom: 14px;}
+  }
+}
+#registed{
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  background-color: rgb(68, 68, 68);
+}

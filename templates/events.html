@@ -1,8 +1,28 @@
-<section id="eventlist">
+<div class="main-content">
 
-</section>
+    <section id="eventlist">
+        <h1>Games to go to</h1>
+        <ul>
+            <li ng-repeat="option in list">
+              <p> Game: {{ option.name }}</p>
+              <p> Date: {{ option.date }}</p>
+              <p> Location: {{ option.location }}</p>
+              <p> Time: {{ option.time }}</p>
+              <button ng-click="add(option)">Sign me up!</button>
 
-<section id="registed events">
-  <h1>{{name}}'s events</h1>
+            </li>
+        </ul>
 
-</section>
+    </section>
+
+    <section id="registed">
+        <h1>{{ name }} is going to the following games</h1>
+        <ul>
+          <li ng-repeat="game in schedule">
+            <p> Game: {{ game.name }}</p>
+            <p> Date: {{ game.date }}</p>
+          </li>
+        </ul>
+    </section>
+
+</div>

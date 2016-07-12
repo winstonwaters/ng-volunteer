@@ -1,29 +1,17 @@
 module.exports = function (app){
-  app.controller('AvailableController', ['$scope', '$http', '$location', 'EventService', function ($scope, $http, $location, EventService){
+  app.controller('AvailableController', ['$scope', '$location', 'EventService', 'LoginService', function ($scope, $location, EventService, LoginService){
 
-    $scope.events=[{
-    	"name": "Yard Sale-a-palooza",
-    	"date": "December 24, 2016",
-    	"host": {
-    		"name": "Salvation Army",
-    		"num_events": 6
-    	}
-    }, {
-    	"name": "Phone call-a-thon",
-    	"date": "October 11, 2016",
-    	"host": {
-    		"name": "Phone Savers",
-    		"num_events": 16
-    	}
-    }];
+    $scope.name = LoginService.getUserName();
+    $scope.list = EventService.getEvent();
+    $scope.schedule = EventService.addEvent();
 
 
-    // $scope.reg = function(){
-    //   console.log(`${$scope.name}`);
-    //   LoginService.createUser($scope.name,$scope.password);
-    //   $location.path('/events');
-    //
-    // }
-    
+
+    $scope.add = function(option){
+      console.log('CLICKING', option.name);
+      EventService.addEvent(option);
+      $location.path('/events');
+    }
+
   }]);
 }
