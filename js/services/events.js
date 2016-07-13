@@ -20,6 +20,7 @@ module.exports = function(app) {
 
       addEvent: function(event) {
         goingtogames.push(event);
+        addedevent.remove(event);
 
         //not working yet need backend
         $http({

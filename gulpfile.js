@@ -11,7 +11,10 @@ gulp.task('default', ['html', 'js', 'css']);
 //html
 gulp.task('html', function(){
   gulp.src('./templates/*.html')
-    .pipe(gulp.dest('./public/templates'))
+    .pipe(gulp.dest('./public/templates'));
+
+  gulp.src('./templates/directives/*.html')
+    .pipe(gulp.dest('./public/directives'));
 
   return gulp.src('./index.html')
     .pipe(gulp.dest('./public'));
@@ -34,7 +37,10 @@ gulp.task('css', function(){
 
 gulp.task('watch', function(){
   gulp.watch('./index.html', ['html'])
+  gulp.watch('./templates/*.html', ['html'])
+  gulp.watch('./templates/*/*.html', ['html'])
   gulp.watch('./js/*.js', ['js'])
+  gulp.watch('./js/*/*.js', ['js'])
   gulp.watch('./templates/*.html', ['html'])
   gulp.watch('./scss/*.scss', ['css'])
 });

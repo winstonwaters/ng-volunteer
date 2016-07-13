@@ -4,11 +4,7 @@
         <h1>Games to go to</h1>
         <ul>
             <li ng-repeat="option in list">
-              <p> Game: {{ option.name }}</p>
-              <p> Date: {{ option.date }}</p>
-              <p> Location: {{ option.location }}</p>
-              <p> Time: {{ option.time }}</p>
-              <button ng-click="add(option)">Sign me up!</button>
+              <event info='option' on-click="add"></event>
 
             </li>
         </ul>

@@ -10,6 +10,11 @@ require('./controllers/available.js')(app);
 require('./services/login.js')(app);
 require('./services/events.js')(app);
 
+//directives
+require('./directives/events.js')(app);
+require('./directives/login.js')(app);
+
+
 app.config(['$routeProvider', function ($routeProvider){
   $routeProvider
     .when('/login', {

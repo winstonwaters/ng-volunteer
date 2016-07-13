@@ -38,6 +38,36 @@ module.exports = function (app){
 }
 
 },{}],3:[function(require,module,exports){
+module.exports = function(app){
+  app.directive('event', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './directives/events.html',
+      scope: {
+        option: '=info',
+        click: '=onClick'
+      },
+    // replace: true,
+  };
+});
+
+};
+
+},{}],4:[function(require,module,exports){
+module.exports = function(app){
+  app.directive('login', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './directives/users.html',
+      scope: {
+        loginusername: '=info',
+      },
+    // replace: true,
+  };
+});
+};
+
+},{}],5:[function(require,module,exports){
 let app = angular.module('VolunteerApp', ['ngRoute']);
 
 //controllers
@@ -49,6 +79,11 @@ require('./controllers/available.js')(app);
 //services
 require('./services/login.js')(app);
 require('./services/events.js')(app);
+
+//directives
+require('./directives/events.js')(app);
+require('./directives/login.js')(app);
+
 
 app.config(['$routeProvider', function ($routeProvider){
   $routeProvider
@@ -72,7 +107,7 @@ app.config(['$routeProvider', function ($routeProvider){
     })
 }])
 
-},{"./controllers/available.js":1,"./controllers/login.js":2,"./services/events.js":4,"./services/login.js":5}],4:[function(require,module,exports){
+},{"./controllers/available.js":1,"./controllers/login.js":2,"./directives/events.js":3,"./directives/login.js":4,"./services/events.js":6,"./services/login.js":7}],6:[function(require,module,exports){
 module.exports = function(app) {
   app.factory('EventService', ['$http', function($http){
     let addedevent = [];
@@ -114,7 +149,7 @@ module.exports = function(app) {
   }]);
 };
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function(app){
   app.factory('LoginService', function($http){
 
@@ -164,4 +199,4 @@ module.exports = function(app){
   })
 }
 
-},{}]},{},[3])
+},{}]},{},[5])
