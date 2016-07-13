@@ -12,7 +12,6 @@ require('./services/events.js')(app);
 
 //directives
 require('./directives/events.js')(app);
-require('./directives/login.js')(app);
 
 
 app.config(['$routeProvider', function ($routeProvider){

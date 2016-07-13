@@ -6,6 +6,11 @@ module.exports = function (app){
     $scope.list = EventService.getEvent();
     $scope.schedule = EventService.addEvent();
 
+    $scope.pageNumber = 1;
+    $scope.itemsPerPage = 2;
+
+    $scope.games = EventService.getGame($scope.pageNumber, $scope.itemsPerPage);
+
 
 
     $scope.add = function(option){
@@ -54,20 +59,6 @@ module.exports = function(app){
 };
 
 },{}],4:[function(require,module,exports){
-module.exports = function(app){
-  app.directive('login', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './directives/users.html',
-      scope: {
-        loginusername: '=info',
-      },
-    // replace: true,
-  };
-});
-};
-
-},{}],5:[function(require,module,exports){
 let app = angular.module('VolunteerApp', ['ngRoute']);
 
 //controllers
@@ -82,7 +73,6 @@ require('./services/events.js')(app);
 
 //directives
 require('./directives/events.js')(app);
-require('./directives/login.js')(app);
 
 
 app.config(['$routeProvider', function ($routeProvider){
@@ -107,7 +97,7 @@ app.config(['$routeProvider', function ($routeProvider){
     })
 }])
 
-},{"./controllers/available.js":1,"./controllers/login.js":2,"./directives/events.js":3,"./directives/login.js":4,"./services/events.js":6,"./services/login.js":7}],6:[function(require,module,exports){
+},{"./controllers/available.js":1,"./controllers/login.js":2,"./directives/events.js":3,"./services/events.js":5,"./services/login.js":6}],5:[function(require,module,exports){
 module.exports = function(app) {
   app.factory('EventService', ['$http', function($http){
     let addedevent = [];
@@ -130,6 +120,7 @@ module.exports = function(app) {
 
       addEvent: function(event) {
         goingtogames.push(event);
+        // addedevent.remove(event);
 
         //not working yet need backend
         $http({
@@ -141,7 +132,12 @@ module.exports = function(app) {
           angular.copy(response.data, goingtogames);
         })
         return goingtogames;
-      }
+      },
+
+      getGame: function(pageNum, perPage){
+        let start = (pageNum - 1) * perPage;
+        return addedevent.slice(start, start + perPage);
+      },
 
     };
 
@@ -149,7 +145,7 @@ module.exports = function(app) {
   }]);
 };
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function(app){
   app.factory('LoginService', function($http){
 
@@ -199,4 +195,4 @@ module.exports = function(app){
   })
 }
 
-},{}]},{},[5])
+},{}]},{},[4])

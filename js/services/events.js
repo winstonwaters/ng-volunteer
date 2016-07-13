@@ -20,7 +20,7 @@ module.exports = function(app) {
 
       addEvent: function(event) {
         goingtogames.push(event);
-        addedevent.remove(event);
+        // addedevent.remove(event);
 
         //not working yet need backend
         $http({
@@ -32,7 +32,12 @@ module.exports = function(app) {
           angular.copy(response.data, goingtogames);
         })
         return goingtogames;
-      }
+      },
+
+      getGame: function(pageNum, perPage){
+        let start = (pageNum - 1) * perPage;
+        return addedevent.slice(start, start + perPage);
+      },
 
     };
 
