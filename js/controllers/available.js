@@ -5,6 +5,7 @@ module.exports = function (app){
     $scope.list = EventService.getEvent();
     $scope.schedule = EventService.addEvent();
 
+    //pagination still in the works
     $scope.pageNumber = 1;
     $scope.itemsPerPage = 2;
 
