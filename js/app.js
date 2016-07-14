@@ -3,7 +3,6 @@ let app = angular.module('VolunteerApp', ['ngRoute']);
 //controllers
 require('./controllers/login.js')(app);
 require('./controllers/available.js')(app);
-// require('./controllers/registered.js')(app);
 
 
 //services

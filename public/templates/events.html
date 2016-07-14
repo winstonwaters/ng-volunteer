@@ -3,12 +3,17 @@
     <section id="eventlist">
         <h1>Games to go to</h1>
         <ul>
-            <li ng-repeat="option in list">
+            <li ng-repeat="option in list | limitTo:itemsPerPage">
               <event info='option' on-click="add"></event>
 
             </li>
         </ul>
+        <div id="pagenav">
+          <button ng-click="prev()">Previous</button>
+          <span>{{ pageNumber }}</span>
+          <button ng-click="next()">Next</button>
 
+        </div>
     </section>
 
     <section id="registed">

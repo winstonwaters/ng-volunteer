@@ -15,6 +15,7 @@ module.exports = function(app) {
           let eventList = response.data
           angular.copy(eventList, addedevent)
         })
+
         return addedevent;
       },
 
@@ -34,9 +35,9 @@ module.exports = function(app) {
         return goingtogames;
       },
 
-      getGame: function(pageNum, perPage){
-        let start = (pageNum - 1) * perPage;
-        return addedevent.slice(start, start + perPage);
+      getPage: function(currentPage, limitPerPage){
+        let start = (currentPage - 1) * limitPerPage;
+        return addedevent.slice(start);
       },
 
     };

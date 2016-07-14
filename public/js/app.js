@@ -5,11 +5,27 @@ module.exports = function (app){
     $scope.name = LoginService.getUserName();
     $scope.list = EventService.getEvent();
     $scope.schedule = EventService.addEvent();
-
     $scope.pageNumber = 1;
     $scope.itemsPerPage = 2;
 
-    $scope.games = EventService.getGame($scope.pageNumber, $scope.itemsPerPage);
+
+    //pagination still in the works
+
+
+    $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+
+    $scope.prev = function(){
+      $scope.pageNumber = $scope.pageNumber - 1;
+      $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage)
+      $scope.list = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+
+    };
+
+    $scope.next = function(){
+      $scope.pageNumber = $scope.pageNumber + 1;
+      $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage)
+      $scope.list = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+    };
 
 
 
@@ -64,7 +80,6 @@ let app = angular.module('VolunteerApp', ['ngRoute']);
 //controllers
 require('./controllers/login.js')(app);
 require('./controllers/available.js')(app);
-// require('./controllers/registered.js')(app);
 
 
 //services
@@ -115,6 +130,7 @@ module.exports = function(app) {
           let eventList = response.data
           angular.copy(eventList, addedevent)
         })
+
         return addedevent;
       },
 
@@ -134,9 +150,9 @@ module.exports = function(app) {
         return goingtogames;
       },
 
-      getGame: function(pageNum, perPage){
-        let start = (pageNum - 1) * perPage;
-        return addedevent.slice(start, start + perPage);
+      getPage: function(currentPage, limitPerPage){
+        let start = (currentPage - 1) * limitPerPage;
+        return addedevent.slice(start);
       },
 
     };

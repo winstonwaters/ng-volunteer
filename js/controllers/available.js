@@ -4,12 +4,27 @@ module.exports = function (app){
     $scope.name = LoginService.getUserName();
     $scope.list = EventService.getEvent();
     $scope.schedule = EventService.addEvent();
-
-    //pagination still in the works
     $scope.pageNumber = 1;
     $scope.itemsPerPage = 2;
 
-    $scope.games = EventService.getGame($scope.pageNumber, $scope.itemsPerPage);
+
+    //pagination still in the works
+
+
+    $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+
+    $scope.prev = function(){
+      $scope.pageNumber = $scope.pageNumber - 1;
+      $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage)
+      $scope.list = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+
+    };
+
+    $scope.next = function(){
+      $scope.pageNumber = $scope.pageNumber + 1;
+      $scope.games = EventService.getPage($scope.pageNumber, $scope.itemsPerPage)
+      $scope.list = EventService.getPage($scope.pageNumber, $scope.itemsPerPage);
+    };
 
 
 

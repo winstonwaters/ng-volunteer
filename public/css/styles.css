@@ -49,6 +49,9 @@
     line-height: 20px; }
     #eventlist ul li {
       padding-bottom: 14px; }
+  #eventlist #pagenav {
+    text-align: center;
+    padding-bottom: 3px; }
 
 #registed {
   vertical-align: top;
